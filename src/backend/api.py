@@ -63,8 +63,8 @@ def get_full_history():
     data=pd.DataFrame(query)
     data.columns=['Deaths', 'Date', 'City', 'Country', 'Severity', 'Source', 'Disaster']
     data=data.drop(['City', 'Source'], 1)
-    dict = data.to_dict()
-    return (dict)
+    dic = data.to_dict()
+    return (dic)
 
 
 @app.route('/show_random_facts', methods=['GET'])
