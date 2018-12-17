@@ -60,7 +60,8 @@ def get_full_history():
         val = request.args.get(arg)
         db_handle = DBHandler()
         query = db_handle.query(arg, val)
-    data=pd.DataFrame(query)
+        
+    data=pd.DataFrame(jsonify(query))
     data.columns=['Deaths', 'Date', 'City', 'Country', 'Severity', 'Source', 'Disaster']
     data=data.drop(['City', 'Source'], 1)
     dic = data.to_dict()
